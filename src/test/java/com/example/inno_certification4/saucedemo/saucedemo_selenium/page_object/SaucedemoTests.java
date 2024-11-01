@@ -42,5 +42,13 @@ public class SaucedemoTests {
         assertEquals("Epic sadface: Sorry, this user has been locked out.", mainPage.authorization.getErrorMessage());
         mainPage.authorization.goToCart();
     }
+    @Test
+    public  void eend2End2UserCase(MainPage mainPage){
+        mainPage.open();
+        assertEquals("Swag Labs",mainPage.authorization.getTextPage());
+        mainPage.authorization.inputLogin(properties.getProperty("USERNAME_LOCKED"));//  проработка на 2 юзера
+        mainPage.authorization.inputPassword(properties.getProperty("PASSWORD"));
+        mainPage.authorization.submitButton();
+    }
 }
 
