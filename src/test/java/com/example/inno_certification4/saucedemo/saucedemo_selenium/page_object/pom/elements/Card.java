@@ -1,10 +1,12 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+
 
 public class Card {
 
+    private final By headerLocation = By.xpath("//div[@class='header_secondary_container']/span");
     private final By card1Location = By.xpath(
         "//div[@class=\"inventory_item_name \"][text()='Sauce Labs Backpack']");
     private final By card2Location = By.xpath(
@@ -19,37 +21,41 @@ public class Card {
         "//*[@id=\"add-to-cart-sauce-labs-onesie\"]");
     private final By shoppingCartLocation = By.xpath(
         "//span[@class=\"shopping_cart_badge\"][text()='3']");
-    private final WebElement context;
+    private final WebDriver driver;
 
-    public Card(WebElement webElement) {
-        this.context = webElement;
+    public Card(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public String getHeader() {
+        return driver.findElement(headerLocation).getText();
     }
 
     public String getCard1Name() {
-        return context.findElement(card1Location).getText();
+        return driver.findElement(card1Location).getText();
     }
 
     public String getCard2Name() {
-        return context.findElement(card2Location).getText();
+        return driver.findElement(card2Location).getText();
     }
 
     public String getCard3Name() {
-        return context.findElement(card3Location).getText();
+        return driver.findElement(card3Location).getText();
     }
 
     public void submitButtonCard1Button() {
-        context.findElement(submitButtonCard1Location).click();
+        driver.findElement(submitButtonCard1Location).click();
     }
 
     public void submitButtonCard2Button() {
-        context.findElement(submitButtonCard2Location).click();
+        driver.findElement(submitButtonCard2Location).click();
     }
 
     public void submitButtonCard3Button() {
-        context.findElement(submitButtonCard3Location).click();
+        driver.findElement(submitButtonCard3Location).click();
     }
 
     public void shoppingCartButton() {
-        context.findElement(shoppingCartLocation).click();
+        driver.findElement(shoppingCartLocation).click();
     }
 }

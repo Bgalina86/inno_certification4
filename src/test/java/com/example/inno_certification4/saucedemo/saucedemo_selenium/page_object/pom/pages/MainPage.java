@@ -1,22 +1,28 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages;
 
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements.Authorization;
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements.Card;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
 
 public class MainPage {
 
-    @FindBy(css = "a.wt-button_mode_primary")
-    public WebElement seeAllToolsButton;
+    private final WebDriver driver;
+    public final Authorization authorization;
+    public final Card card;
+    private static ConfProperties properties;
 
-    @FindBy(xpath = "//div[contains(@class, 'menu-main__item') and text() = 'Developer Tools']")
-    public WebElement toolsMenu;
-
-    @FindBy(css = "[data-test='menu-main-icon-search']")
-    public WebElement searchButton;
+    public static void setUp() {
+        properties = new ConfProperties();
+          }
 
     public MainPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        this.authorization = new Authorization(driver);
+        this.card = new Card(driver);
+    }
+    public void open(){
+        driver.get(properties.getProperty("URL"));
     }
 }

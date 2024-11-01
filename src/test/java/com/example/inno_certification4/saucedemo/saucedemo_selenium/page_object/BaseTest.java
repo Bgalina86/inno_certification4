@@ -1,5 +1,6 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object;
 
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.AuthorizationPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CardsPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CheckoutOverviewPage;
@@ -8,6 +9,7 @@ import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.OrderCartPage;
 import java.time.Duration;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,17 +25,25 @@ public abstract class BaseTest {
     protected CheckoutYourInformationPage checkoutYourInformationPage;
     protected MainPage mainPage;
     protected OrderCartPage orderCartPage;
-
+    public static ConfProperties properties;
     @BeforeEach
-    public void setUp() {
+    public void setUpL() {
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
+        authorizationPage = new AuthorizationPage(driver);
+       cardsPage = new CardsPage(driver);
+       checkoutOverviewPage = new  CheckoutOverviewPage(driver);
+       checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
         mainPage = new MainPage(driver);
-        searchResultPage = new SearchResultPage(driver);
-        cartPage = new CartPage(driver);
+        orderCartPage = new OrderCartPage(driver);
+    }
+
+    @BeforeAll
+    public static void setUp() {
+        properties = new ConfProperties();
     }
 
     @AfterEach
