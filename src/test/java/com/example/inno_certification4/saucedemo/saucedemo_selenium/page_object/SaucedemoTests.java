@@ -1,6 +1,5 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.qameta.allure.*;
@@ -26,6 +25,7 @@ public class SaucedemoTests {
         properties = new ConfProperties();
     }
 
+    @Epic("Тест-кейс положительная авторизация")
     @Test
     @DisplayName("Блок авторизация")
     @Tag("positive")
@@ -33,7 +33,6 @@ public class SaucedemoTests {
     @Severity(SeverityLevel.BLOCKER)
     public void authorizationStandardUser(MainPage mainPage) {
         mainPage.open();
-        mainPage.goToCart();
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
         mainPage.authorizationPage.getLoginStandart();
         mainPage.authorizationPage.getPassword();
@@ -41,6 +40,7 @@ public class SaucedemoTests {
         assertEquals("Products", mainPage.cardsPage.getHeader());
     }
 
+    @Epic("Тест-кейс негативная авторизация")
     @Test
     @DisplayName("Блок авторизация")
     @Tag("negative ")
@@ -56,6 +56,7 @@ public class SaucedemoTests {
             mainPage.authorizationPage.getErrorMessage());
     }
 
+    @Epic("Тест-кейс end2end")
     @Test
     @DisplayName("Пользовательский тест-кейс по покупке товара")
     @Tag("positive")
@@ -65,6 +66,22 @@ public class SaucedemoTests {
         mainPage.open();
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
         mainPage.authorizationPage.getLoginStandart();
+      e2e(mainPage);
+    }
+
+    @Epic("Тест-кейс end2end")
+    @Test
+    @DisplayName("Пользовательский тест-кейс по покупке товара с ожиданиями")
+    @Tag("positive")
+    @Story("Проверка авторизации пользователем,который зарегистрирован")
+    @Severity(SeverityLevel.BLOCKER)
+    public void e2eUsernamePerformance(MainPage mainPage) {
+        mainPage.open();
+        assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
+        mainPage.authorizationPage.getLoginUsernamePerformance();
+        e2e(mainPage);
+    }
+    private void e2e(MainPage mainPage){
         mainPage.authorizationPage.getPassword();
         mainPage.authorizationPage.submitButtonLogin();
         assertEquals("Products", mainPage.cardsPage.getHeader());
@@ -81,7 +98,8 @@ public class SaucedemoTests {
         assertEquals("Your Cart", mainPage.checkoutOverviewPage.getHeader());
         assertEquals("Sauce Labs Backpack", mainPage.checkoutOverviewPage.getnameCart1Location(),
             "Проверка наличия товара с наименованием Sauce Labs Backpack");
-        assertEquals("Sauce Labs Bolt T-Shirt", mainPage.checkoutOverviewPage.getnameCart2Location(),
+        assertEquals("Sauce Labs Bolt T-Shirt",
+            mainPage.checkoutOverviewPage.getnameCart2Location(),
             "Проверка наличия товара с наименованием Sauce Labs Bolt T-Shirt");
         assertEquals("Sauce Labs Onesie", mainPage.checkoutOverviewPage.getnameCart3Location(),
             "Проверка наличия товара с наименованием Sauce Labs Onesie");
@@ -92,25 +110,18 @@ public class SaucedemoTests {
         assertEquals("$7.99", mainPage.checkoutOverviewPage.getpriceCard3Location(),
             "Проверка стоимости товара Sauce Labs Onesie $7.99");
         mainPage.checkoutOverviewPage.buttonFinishLocation();
-        //заполнить форму
-        //нажать кнопку
-        //проверить сумму
-        //нажать кнопку
-
-    }
-
-    @Test
-    @DisplayName("Пользовательский тест-кейс по покупке товара")
-    @Tag("positive")
-    @Story("Проверка авторизации пользователем,который зарегистрирован")
-    @Severity(SeverityLevel.BLOCKER)
-    public void e2eUsernamePerformance(MainPage mainPage) {
-        mainPage.open();
-        assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
-        mainPage.authorizationPage.getLoginUsernamePerformance();
-        mainPage.authorizationPage.getPassword();
-        mainPage.authorizationPage.submitButtonLogin();
-        assertEquals("Products", mainPage.cardsPage.getHeader());
+        mainPage.checkoutYourInformationPage.setFillingOutForm();
+        mainPage.orderCartPage.getSizeCartListLocation();
+        assertEquals("Sauce Labs Backpack", mainPage.orderCartPage.getnameCart1Location(),
+            "Проверка наличия товара с наименованием Sauce Labs Backpack");
+        assertEquals("Sauce Labs Bolt T-Shirt", mainPage.orderCartPage.getnameCart2Location(),
+            "Проверка наличия товара с наименованием Sauce Labs Bolt T-Shirt");
+        assertEquals("Sauce Labs Onesie", mainPage.orderCartPage.getnameCart3Location(),
+            "Проверка наличия товара с наименованием Sauce Labs Onesie");
+        assertEquals("Total: $58.29", mainPage.orderCartPage.getTotalPriceLocation(),
+            "Проверка общей стоимости товара. Total: $58.29");
+        mainPage.orderCartPage.clickButtonCheckoutLocation();
+        assertEquals("Thank you for your order!", mainPage.orderCartPage.getTextFinishPage());
     }
 }
 

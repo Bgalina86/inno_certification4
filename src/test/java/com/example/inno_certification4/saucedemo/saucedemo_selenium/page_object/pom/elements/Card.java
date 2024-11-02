@@ -1,10 +1,11 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class CardPage {
+public class Card {
 
     private final By headerLocation = By.xpath("//div[@class='header_secondary_container']/span");
     private final By card1Location = By.xpath(
@@ -23,38 +24,46 @@ public class CardPage {
         "//span[@class=\"shopping_cart_badge\"][text()='3']");
     private final WebDriver driver;
 
-    public CardPage(WebDriver driver) {
+    public Card(WebDriver driver) {
         this.driver = driver;
     }
 
+    @Step("Запрашиваем название страницы")
     public String getHeader() {
         return driver.findElement(headerLocation).getText();
     }
 
+    @Step("Получение наименование товара №1")
     public String getCard1Name() {
         return driver.findElement(card1Location).getText();
     }
 
+    @Step("Получение наименование товара №2")
     public String getCard2Name() {
         return driver.findElement(card2Location).getText();
     }
 
+    @Step("Получение наименование товара №3")
     public String getCard3Name() {
         return driver.findElement(card3Location).getText();
     }
 
+    @Step("Добавление в корзину товара №1")
     public void submitButtonCard1Button() {
         driver.findElement(submitButtonCard1Location).click();
     }
 
+    @Step("Добавление в корзину товара №2")
     public void submitButtonCard2Button() {
         driver.findElement(submitButtonCard2Location).click();
     }
 
+    @Step("Добавление в корзину товара №3")
     public void submitButtonCard3Button() {
         driver.findElement(submitButtonCard3Location).click();
     }
 
+    @Step("Переход на страницу корзины по иконке Корзина")
     public void shoppingCartButton() {
         driver.findElement(shoppingCartLocation).click();
     }

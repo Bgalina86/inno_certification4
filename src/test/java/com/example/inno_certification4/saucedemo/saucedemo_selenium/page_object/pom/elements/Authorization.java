@@ -1,6 +1,7 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements;
 
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,34 +17,35 @@ public class Authorization {
         "//div[@class='error-message-container error']/h3");
     private final WebDriver driver;
 
-
     public static void setUp() {
         properties = new ConfProperties();
     }
 
     public Authorization(WebDriver driver) {
         this.driver = driver;
-
     }
 
     public String getTextPage() {
         return driver.findElement(logoLocation).getText();
     }
 
+    @Step("Ввод логина")
     public void inputLogin(String usernameStandard) {
         driver.findElement(usernameLocation).sendKeys(usernameStandard);
     }
 
+    @Step("Ввод пароля")
     public void inputPassword(String password) {
         driver.findElement(passwordLocation).sendKeys(password);
     }
 
+    @Step("Нажимаем кнопку")
     public void submitButton() {
         driver.findElement(submitButtonLocation).click();
     }
 
+    @Step("Вывод сообщения об ошибки при вводе невалидных данных в форму авторизации")
     public String getErrorMessage() {
         return driver.findElement(errorMessageLocation).getText();
     }
-
 }

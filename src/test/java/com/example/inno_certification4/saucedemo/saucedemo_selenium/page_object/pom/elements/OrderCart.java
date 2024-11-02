@@ -1,7 +1,9 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class OrderCart {
@@ -14,31 +16,47 @@ public class OrderCart {
         "//div[@class='cart_item_label']//a//div[text()='Sauce Labs Bolt T-Shirt']");
     private final By nameCart3Location = By.xpath(
         "//div[@class='cart_item_label']//a//div[text()='Sauce Labs Onesie']");
-    private final By buttonCheckoutLocation = By.xpath("//button[@id='checkout']");
-    private final WebElement context;
+    private final By totalPriceLocation = By.xpath("//div[@class='summary_total_label']");
+    private final By buttonCheckoutLocation = By.xpath("//button[@id=\"finish\"]");
+    private final By finishHeaderLocation = By.xpath("//h2");
+    private final WebDriver driver;
 
-    public OrderCart(WebElement webElement) {
-        this.context = webElement;
+    public OrderCart(WebDriver driver) {
+        this.driver = driver;
     }
 
+    @Step("Получаем количество карточек товара")
     public Dimension getSizeCartListLocation() {
-        return context.findElement(cartListLocation).getSize();
+        return driver.findElement(cartListLocation).getSize();
     }
 
+    @Step("Получение наименования товара №1")
     public String getNameCart1Location() {
-        return context.findElement(nameCart1Location).getText();
+        return driver.findElement(nameCart1Location).getText();
     }
 
+    @Step("Получение наименования товара №1")
     public String getNameCart2Location() {
-        return context.findElement(nameCart2Location).getText();
+        return driver.findElement(nameCart2Location).getText();
     }
 
+    @Step("Получение наименования товара №1")
     public String getNameCart3Location() {
-        return context.findElement(nameCart3Location).getText();
+        return driver.findElement(nameCart3Location).getText();
     }
 
+    @Step("Получаем общую стоимость товаров")
+    public String getTotalPriceLocation() {
+        return driver.findElement(totalPriceLocation).getText();
+    }
+
+    @Step("Нажимаем кнопку")
     public void clickButtonCheckoutLocation() {
-        context.findElement(buttonCheckoutLocation).submit();
+        driver.findElement(buttonCheckoutLocation).click();
     }
 
+    @Step("Получаем текст страницы в завершении оформления заказа")
+    public String getFinishText() {
+        return driver.findElement(finishHeaderLocation).getText();
+    }
 }
