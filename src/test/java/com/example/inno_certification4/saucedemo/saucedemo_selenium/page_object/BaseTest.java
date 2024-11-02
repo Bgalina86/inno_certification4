@@ -1,6 +1,7 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object;
 
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements.Authorization;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.AuthorizationPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CardsPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CheckoutOverviewPage;
@@ -34,7 +35,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         authorizationPage = new AuthorizationPage(driver);
-       cardsPage = new CardsPage(driver);
+        cardsPage = new CardsPage(driver);
        checkoutOverviewPage = new  CheckoutOverviewPage(driver);
        checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
         mainPage = new MainPage(driver);

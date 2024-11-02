@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class Card {
+public class CardPage {
 
     private final By headerLocation = By.xpath("//div[@class='header_secondary_container']/span");
     private final By card1Location = By.xpath(
@@ -23,7 +23,7 @@ public class Card {
         "//span[@class=\"shopping_cart_badge\"][text()='3']");
     private final WebDriver driver;
 
-    public Card(WebDriver driver) {
+    public CardPage(WebDriver driver) {
         this.driver = driver;
     }
 
