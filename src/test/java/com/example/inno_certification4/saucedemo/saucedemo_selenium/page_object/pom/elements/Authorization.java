@@ -29,12 +29,12 @@ public class Authorization {
         return driver.findElement(logoLocation).getText();
     }
 
-    @Step("Ввод логина")
+    @Step("Ввод логина в поле формы авторизации")
     public void inputLogin(String usernameStandard) {
         driver.findElement(usernameLocation).sendKeys(usernameStandard);
     }
 
-    @Step("Ввод пароля")
+    @Step("Ввод пароля в поле формы авторизации")
     public void inputPassword(String password) {
         driver.findElement(passwordLocation).sendKeys(password);
     }

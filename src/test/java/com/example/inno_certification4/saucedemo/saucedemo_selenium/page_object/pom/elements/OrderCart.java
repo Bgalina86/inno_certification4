@@ -4,12 +4,9 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class OrderCart {
 
-    private final By cartListLocation = By.xpath("//div[@class=\"cart_item\"]");
-    //private final By card1Location = By.xpath("//div[@class=\"inventory_item_name\"][text()='Sauce Labs Backpack']");
     private final By nameCart1Location = By.xpath(
         "//div[@class='cart_item_label']//a//div[text()='Sauce Labs Backpack']");
     private final By nameCart2Location = By.xpath(
@@ -23,11 +20,6 @@ public class OrderCart {
 
     public OrderCart(WebDriver driver) {
         this.driver = driver;
-    }
-
-    @Step("Получаем количество карточек товара")
-    public Dimension getSizeCartListLocation() {
-        return driver.findElement(cartListLocation).getSize();
     }
 
     @Step("Получение наименования товара №1")

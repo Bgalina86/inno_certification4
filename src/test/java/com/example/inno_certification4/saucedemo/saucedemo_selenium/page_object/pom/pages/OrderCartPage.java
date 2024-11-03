@@ -10,10 +10,7 @@ public class OrderCartPage {
         this.driver = driver;
         this.orderCart = new OrderCart(driver);
     }
-    @Step("Проверяем, что в заказе 3 товара")
-    public boolean getSizeCartListLocation() {
-     return orderCart.getSizeCartListLocation().equals("3");
-    }
+
     @Step("Получение наименования товара Sauce Labs Backpack")
     public String getnameCart1Location() {
         return orderCart.getNameCart1Location();

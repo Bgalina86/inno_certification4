@@ -8,11 +8,14 @@ import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CheckoutYourInformationPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.MainPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.OrderCartPage;
+import io.qameta.allure.Attachment;
 import java.time.Duration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -55,4 +58,4 @@ public abstract class BaseTest {
             driver.quit();
         }
     }
-}
+ }

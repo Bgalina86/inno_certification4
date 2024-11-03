@@ -13,7 +13,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-
+@DisplayName("Тесты по сайту https://www.saucedemo.com/")
+@Owner("Smirnova G.")
 @ExtendWith(MainPageResolver.class)
 @ExtendWith(WebDriverShutter.class)
 public class SaucedemoTests {
@@ -25,12 +26,16 @@ public class SaucedemoTests {
         properties = new ConfProperties();
     }
 
-    @Epic("Тест-кейс положительная авторизация")
+
     @Test
+    @Owner("Smirnova G.")
+    @Epic("Тест-кейс положительная авторизация")
     @DisplayName("Блок авторизация")
     @Tag("positive")
     @Story("Проверка авторизации пользователем,который зарегистрирован")
     @Severity(SeverityLevel.BLOCKER)
+    @Link(url = "ссылка на постановку", name = "Наименование постановки")
+    @Issue("jira jp-123")
     public void authorizationStandardUser(MainPage mainPage) {
         mainPage.open();
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
@@ -40,12 +45,16 @@ public class SaucedemoTests {
         assertEquals("Products", mainPage.cardsPage.getHeader());
     }
 
-    @Epic("Тест-кейс негативная авторизация")
+
     @Test
+    @Owner("Smirnova G.")
+    @Epic("Тест-кейс негативная авторизация")
     @DisplayName("Блок авторизация")
     @Tag("negative ")
     @Story("Проверка авторизации пользователем,который забыл пароль")
     @Severity(SeverityLevel.BLOCKER)
+    @Link(url = "ссылка на постановку", name = "Наименование постановки")
+    @Issue("jira jp-123")
     public void authorizationError(MainPage mainPage) {
         mainPage.open();
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
@@ -56,12 +65,16 @@ public class SaucedemoTests {
             mainPage.authorizationPage.getErrorMessage());
     }
 
-    @Epic("Тест-кейс end2end")
+
     @Test
+    @Owner("Smirnova G.")
+    @Epic("Тест-кейс end2end")
     @DisplayName("Пользовательский тест-кейс по покупке товара")
     @Tag("positive")
     @Story("Проверка авторизации пользователем,который зарегистрирован")
     @Severity(SeverityLevel.BLOCKER)
+    @Link(url = "ссылка на постановку", name = "Наименование постановки")
+    @Issue("jira jp-123")
     public void e2eLoginStandart(MainPage mainPage) {
         mainPage.open();
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
@@ -69,12 +82,16 @@ public class SaucedemoTests {
       e2e(mainPage);
     }
 
-    @Epic("Тест-кейс end2end")
+
     @Test
+    @Owner("Smirnova G.")
+    @Epic("Тест-кейс end2end")
     @DisplayName("Пользовательский тест-кейс по покупке товара с ожиданиями")
     @Tag("positive")
     @Story("Проверка авторизации пользователем,который зарегистрирован")
     @Severity(SeverityLevel.BLOCKER)
+    @Link(url = "ссылка на постановку", name = "Наименование постановки")
+    @Issue("jira jp-123")
     public void e2eUsernamePerformance(MainPage mainPage) {
         mainPage.open();
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
@@ -111,7 +128,6 @@ public class SaucedemoTests {
             "Проверка стоимости товара Sauce Labs Onesie $7.99");
         mainPage.checkoutOverviewPage.buttonFinishLocation();
         mainPage.checkoutYourInformationPage.setFillingOutForm();
-        mainPage.orderCartPage.getSizeCartListLocation();
         assertEquals("Sauce Labs Backpack", mainPage.orderCartPage.getnameCart1Location(),
             "Проверка наличия товара с наименованием Sauce Labs Backpack");
         assertEquals("Sauce Labs Bolt T-Shirt", mainPage.orderCartPage.getnameCart2Location(),
