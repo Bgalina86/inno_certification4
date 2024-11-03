@@ -1,4 +1,4 @@
-## Отчет в Allure  с трендами
-![Отчет в Allure  с трендами](./img/img_Allure_report_is_trend.jpg)
-## Отчет с Suites
-![Отчет в Allure  с трендами](./img/img_suites.jpg)
+## РћС‚С‡РµС‚ РІ Allure  СЃ С‚СЂРµРЅРґР°РјРё
+![РћС‚С‡РµС‚ РІ Allure  СЃ С‚СЂРµРЅРґР°РјРё](./img/img_Allure_report_is_trend.jpg)
+## РћС‚С‡РµС‚ СЃ Suites
+![РћС‚С‡РµС‚ СЃ Suites](./img/img_suites.jpg)
