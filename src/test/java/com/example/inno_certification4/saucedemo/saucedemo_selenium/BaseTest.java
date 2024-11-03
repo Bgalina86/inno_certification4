@@ -1,26 +1,19 @@
-package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object;
-
+package com.example.inno_certification4.saucedemo.saucedemo_selenium;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
-import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements.Authorization;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.AuthorizationPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CardsPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CheckoutOverviewPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CheckoutYourInformationPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.MainPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.OrderCartPage;
-import io.qameta.allure.Attachment;
 import java.time.Duration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-public abstract class BaseTest {
-
+public class BaseTest {
     protected WebDriver driver;
 
     // pages
@@ -58,4 +51,4 @@ public abstract class BaseTest {
             driver.quit();
         }
     }
- }
+}
