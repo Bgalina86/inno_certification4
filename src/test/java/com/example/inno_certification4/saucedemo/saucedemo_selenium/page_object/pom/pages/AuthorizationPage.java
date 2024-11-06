@@ -1,19 +1,14 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages;
 
-import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.BaseTest;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements.Authorization;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-public class AuthorizationPage {
+public class AuthorizationPage extends BaseTest {
 
-    private static ConfProperties properties;
-    private final WebDriver driver;
-    private Authorization authorization;
-
-    public static void setUp() {
-        properties = new ConfProperties();
-    }
+ private final WebDriver driver;
+ private Authorization authorization;
 
     public AuthorizationPage(WebDriver driver) {
         this.driver = driver;

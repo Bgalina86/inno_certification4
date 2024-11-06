@@ -3,7 +3,7 @@ package com.example.inno_certification4.saucedemo.saucedemo_selenium;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.qameta.allure.*;
-import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
+
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.ext.MainPageResolver;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.ext.WebDriverShutter;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.MainPage;
@@ -17,9 +17,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @ExtendWith(MainPageResolver.class)
 @ExtendWith(WebDriverShutter.class)
 public class SaucedemoTests extends BaseTest {
-
-    private static ConfProperties properties;
-
 
     @Test
     @Owner("Smirnova G.")
