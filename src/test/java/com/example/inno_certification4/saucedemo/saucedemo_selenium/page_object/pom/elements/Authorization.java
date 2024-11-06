@@ -12,7 +12,7 @@ public class Authorization {
     private final By logoLocation = By.xpath("//div[@class=\"login_logo\"]");//Swag Labs
     private final By usernameLocation = By.xpath("//input[@placeholder=\"Username\"]");
     private final By passwordLocation = By.xpath("//input[@placeholder=\"Password\"]");
-    private final By submitButtonLocation = By.xpath("//input[@type=\"submit\"]");
+    private final By clickButtonLocation = By.xpath("//input[@type=\"submit\"]");
     private final By errorMessageLocation = By.xpath(
         "//div[@class='error-message-container error']/h3");
     private final WebDriver driver;
@@ -40,8 +40,8 @@ public class Authorization {
     }
 
     @Step("Нажимаем кнопку")
-    public void submitButton() {
-        driver.findElement(submitButtonLocation).click();
+    public void clickButton() {
+        driver.findElement(clickButtonLocation).click();
     }
 
     @Step("Вывод сообщения об ошибки при вводе невалидных данных в форму авторизации")

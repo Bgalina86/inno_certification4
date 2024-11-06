@@ -46,8 +46,8 @@ public class AuthorizationPage {
     }
 
     @Step("Нажатия кнопки \"Login\"")
-    public void submitButtonLogin() {
-        authorization.submitButton();
+    public void clikButtonLogin() {
+        authorization.clickButton();
     }
 
     @Step("Вывод ошибки при не успешной авторизации")

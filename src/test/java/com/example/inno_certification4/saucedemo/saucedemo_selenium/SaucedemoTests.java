@@ -7,7 +7,6 @@ import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfP
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.ext.MainPageResolver;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.ext.WebDriverShutter;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.MainPage;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -17,14 +16,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @Owner("Smirnova G.")
 @ExtendWith(MainPageResolver.class)
 @ExtendWith(WebDriverShutter.class)
-public class SaucedemoTests {
+public class SaucedemoTests extends BaseTest {
 
     private static ConfProperties properties;
-
-    @BeforeAll
-    public static void setUp() {
-        properties = new ConfProperties();
-    }
 
 
     @Test
@@ -41,7 +35,7 @@ public class SaucedemoTests {
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
         mainPage.authorizationPage.getLoginStandart();
         mainPage.authorizationPage.getPassword();
-        mainPage.authorizationPage.submitButtonLogin();
+        mainPage.authorizationPage.clikButtonLogin();
         assertEquals("Products", mainPage.cardsPage.getHeader());
     }
 
@@ -60,7 +54,7 @@ public class SaucedemoTests {
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
         mainPage.authorizationPage.getLoginError();
         mainPage.authorizationPage.getPassword();
-        mainPage.authorizationPage.submitButtonLogin();
+        mainPage.authorizationPage.clikButtonLogin();
         assertEquals("Epic sadface: Sorry, this user has been locked out.",
             mainPage.authorizationPage.getErrorMessage());
     }
@@ -100,18 +94,18 @@ public class SaucedemoTests {
     }
     private void e2e(MainPage mainPage){
         mainPage.authorizationPage.getPassword();
-        mainPage.authorizationPage.submitButtonLogin();
+        mainPage.authorizationPage.clikButtonLogin();
         assertEquals("Products", mainPage.cardsPage.getHeader());
         assertEquals("Sauce Labs Backpack", mainPage.cardsPage.getNameCard1(),
             "Проверка наличия товара с наименованием Sauce Labs Backpack");
-        mainPage.cardsPage.submitButtonCard1Button();
+        mainPage.cardsPage.clickButtonCard1Button();
         assertEquals("Sauce Labs Bolt T-Shirt", mainPage.cardsPage.getNameCard2(),
             "Проверка наличия товара с наименованием Sauce Labs Bolt T-Shirt");
-        mainPage.cardsPage.submitButtonCard2Button();
+        mainPage.cardsPage.clickButtonCard2Button();
         assertEquals("Sauce Labs Onesie", mainPage.cardsPage.getNameCard3(),
             "Проверка наличия товара с наименованием Sauce Labs Onesie");
-        mainPage.cardsPage.submitButtonCard3Button();
-        mainPage.cardsPage.shoppingCartButton();
+        mainPage.cardsPage.clickButtonCard3Button();
+        mainPage.cardsPage.clickShoppingCartButton();
         assertEquals("Your Cart", mainPage.checkoutOverviewPage.getHeader());
         assertEquals("Sauce Labs Backpack", mainPage.checkoutOverviewPage.getnameCart1Location(),
             "Проверка наличия товара с наименованием Sauce Labs Backpack");
@@ -126,7 +120,7 @@ public class SaucedemoTests {
             "Проверка стоимости товара Sauce Labs Bolt T-Shirt $15.99");
         assertEquals("$7.99", mainPage.checkoutOverviewPage.getpriceCard3Location(),
             "Проверка стоимости товара Sauce Labs Onesie $7.99");
-        mainPage.checkoutOverviewPage.buttonFinishLocation();
+        mainPage.checkoutOverviewPage.clickButtonFinishLocation();
         mainPage.checkoutYourInformationPage.setFillingOutForm();
         assertEquals("Sauce Labs Backpack", mainPage.orderCartPage.getnameCart1Location(),
             "Проверка наличия товара с наименованием Sauce Labs Backpack");
