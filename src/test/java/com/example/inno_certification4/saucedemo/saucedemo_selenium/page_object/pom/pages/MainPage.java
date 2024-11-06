@@ -1,22 +1,10 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages;
 
-import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.BaseTest;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-public class MainPage {
-
-    private final WebDriver driver;
-    public final AuthorizationPage authorizationPage;
-    public final CardsPage cardsPage;
-    public final CheckoutYourInformationPage checkoutYourInformationPage;
-    public final OrderCartPage orderCartPage;
-    public CheckoutOverviewPage checkoutOverviewPage;
-    private static ConfProperties properties;
-
-    public static void setUp() {
-        properties = new ConfProperties();
-    }
+public class MainPage extends BaseTest {
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -31,4 +19,4 @@ public class MainPage {
     public void open() {
         driver.get(properties.getProperty("URL"));
     }
-    }
+}

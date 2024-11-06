@@ -1,4 +1,5 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium;
+
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.helper.ConfProperties;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.AuthorizationPage;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages.CardsPage;
@@ -13,7 +14,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 public class BaseTest {
+
     protected WebDriver driver;
 
     // pages

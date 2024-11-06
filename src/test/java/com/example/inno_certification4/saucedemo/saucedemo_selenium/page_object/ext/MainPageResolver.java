@@ -14,20 +14,19 @@ public class MainPageResolver implements ParameterResolver {
 
 
     @Override
-    public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+    public boolean supportsParameter(ParameterContext parameterContext,
+        ExtensionContext extensionContext) throws ParameterResolutionException {
         return parameterContext.getParameter().getType().equals(MainPage.class);
     }
 
     @Override
-    public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+    public Object resolveParameter(ParameterContext parameterContext,
+        ExtensionContext extensionContext) throws ParameterResolutionException {
         WebDriver driver =
-                extensionContext
-                        .getStore(WebDriverShutter.namespace)
-                        .getOrComputeIfAbsent(WD_KEY, (s) -> new ChromeDriver(), WebDriver.class);
-
+            extensionContext
+                .getStore(WebDriverShutter.namespace)
+                .getOrComputeIfAbsent(WD_KEY, (s) -> new ChromeDriver(), WebDriver.class);
 
         return new MainPage(driver);
     }
-
-
 }

@@ -1,12 +1,12 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages;
 
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.BaseTest;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements.Card;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-public class CardsPage {
+public class CardsPage extends BaseTest {
 
-    private final WebDriver driver;
     private final Card card;
 
     public CardsPage(WebDriver driver) {

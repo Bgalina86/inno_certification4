@@ -7,8 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AuthorizationPage extends BaseTest {
 
- private final WebDriver driver;
- private Authorization authorization;
+    private Authorization authorization;
 
     public AuthorizationPage(WebDriver driver) {
         this.driver = driver;

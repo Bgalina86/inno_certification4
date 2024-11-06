@@ -1,12 +1,12 @@
 package com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.pages;
 
+import com.example.inno_certification4.saucedemo.saucedemo_selenium.BaseTest;
 import com.example.inno_certification4.saucedemo.saucedemo_selenium.page_object.pom.elements.CheckoutOverview;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-public class CheckoutOverviewPage {
+public class CheckoutOverviewPage extends BaseTest {
 
-    private final WebDriver driver;
     private final CheckoutOverview checkoutOverview;
 
     public CheckoutOverviewPage(WebDriver driver) {
@@ -53,5 +53,4 @@ public class CheckoutOverviewPage {
     public void clickButtonFinishLocation() {
         checkoutOverview.clickButtonFinishLocation();
     }
-
 }

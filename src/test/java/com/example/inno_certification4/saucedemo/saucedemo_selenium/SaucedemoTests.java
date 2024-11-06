@@ -70,7 +70,7 @@ public class SaucedemoTests extends BaseTest {
         mainPage.open();
         assertEquals("Swag Labs", mainPage.authorizationPage.getTextHeader());
         mainPage.authorizationPage.getLoginStandart();
-      e2e(mainPage);
+        e2e(mainPage);
     }
 
 
@@ -89,7 +89,8 @@ public class SaucedemoTests extends BaseTest {
         mainPage.authorizationPage.getLoginUsernamePerformance();
         e2e(mainPage);
     }
-    private void e2e(MainPage mainPage){
+
+    private void e2e(MainPage mainPage) {
         mainPage.authorizationPage.getPassword();
         mainPage.authorizationPage.clikButtonLogin();
         assertEquals("Products", mainPage.cardsPage.getHeader());
